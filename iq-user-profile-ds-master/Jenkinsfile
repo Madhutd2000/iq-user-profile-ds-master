@@ -1,0 +1,16 @@
+
+@Library('iq-smb-devops-library@iq-mod-packbuild-jdk21') _
+
+runMultiBranchJobTemplate repoName: 'iq-user-profile-ds',
+        testWithDocker: false,
+        skipUnitTests: true,
+        runSonar: true,
+        runCheckmarx: false,
+        cx_project: 'iq-user-profile-ds_dev',
+        xldApplicationFolder: 'IQM/Dev',	
+        xldEnvironmentFolder: "IQM/DEV/IQM_DEV\n" + "IQM/TEST/IQM_TEST\n",
+        publishToXld: true,
+        deployToKubernetes: true,
+        enableDockerImage: true,
+        emailRecipients: '',
+        registry: '319472806911.dkr.ecr.us-east-2.amazonaws.com'
